@@ -1,0 +1,15 @@
+{
+  "ci": {
+    "collect": {
+      "urls": [
+        "https://smoczynskiw.github.io/react-memo-game"
+      ],
+      "numberOfRuns": 2
+    },
+    "assert": {},
+    "upload": {
+      "target": "filesystem",
+      "outputDir": "./lhci-report"
+    }
+  }
+}
