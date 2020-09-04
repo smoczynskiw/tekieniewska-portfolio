@@ -7,9 +7,12 @@ jobs:
       - run:
           name: Run test
           command: |
-             docker run --shm-size=1g --rm -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:latest https://stage.animedigitalnetwork.fr --basicAuth ${BASIC_AUTH} -n 1
+             docker run --shm-size=1g --rm -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:latest https://stage.animedigitalnetwork.fr --basicAuth ${BASIC_AUTH} -n 1 --slack.hookUrl ${SLACK_HOOK_URL}
+      - run:
+          name: Compress results
+          command: tar -cf ~/project/results.tar ~/project/sitespeed-result
       - store_artifacts:
-          path: ~/project/sitespeed-result
+          path: ~/project/results.tar
 
 workflows:
   build:
