@@ -3,11 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:10.16-browsers
-    working_directory: ~/tekieniewska-portfolio
     steps:
-      - checkout
-      - run: yarn install
-      - run: yarn build
       - run: sudo yarn global add @lhci/cli
       - run: lhci autorun
       - store_artifacts:
