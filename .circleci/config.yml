@@ -11,7 +11,7 @@ jobs:
              https://stage.animedigitalnetwork.fr \
              https://stage.animedigitalnetwork.fr/video/bleach \
              https://stage.animedigitalnetwork.fr/video/bleach/5534-episode-3-episode-3 \
-             -r ${AUTH_HEADER} \
+             --basicAuth ${BASIC_AUTH} \
              --slack.hookUrl ${SLACK_HOOK_URL}
       - store_artifacts:
           path: ~/sitespeed.io
