@@ -21,9 +21,6 @@ jobs:
             https://stage.animedigitalnetwork.fr \
             --basicAuth ${BASIC_AUTH} \
             --slack.hookUrl ${SLACK_HOOK_URL} \
-      #      --s3.key ${S3_KEY} \
-      #      --s3.secret ${S3_SECRET} \
-      #      --s3.bucketname ${S3_BUCKET}
             --browsertime.connectivity.engine tsproxy -c 3gfast
         - run:
           name: Run test - slow 3g
@@ -32,9 +29,6 @@ jobs:
             https://stage.animedigitalnetwork.fr \
             --basicAuth ${BASIC_AUTH} \
             --slack.hookUrl ${SLACK_HOOK_URL} \
-      #      --s3.key ${S3_KEY} \
-      #      --s3.secret ${S3_SECRET} \
-      #      --s3.bucketname ${S3_BUCKET}
             --browsertime.connectivity.engine tsproxy -c 3gslow
       - run:
           name: Compress results
