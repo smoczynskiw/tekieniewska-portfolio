@@ -5,7 +5,7 @@ const { main } = styles
 
 const ContentBox = ({ type }) => (
   <div style={main}>
-    <img></img>
+    <img alt='alt'></img>
   </div>
 )
 

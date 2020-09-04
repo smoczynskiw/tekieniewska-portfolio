@@ -7,9 +7,9 @@ const { main, logo, navLink, navLinksWrapper, socialButtonsWrapper } = styles
 
 const Navbar = ({ links, socials }) => (
   <div style={main}>
-    <img style={logo} src={logoPic} />
+    <img style={logo} src={logoPic} alt='logo' />
     <div style={navLinksWrapper}>
-      {links.map(link => <a style={navLink}>{link}</a>)}
+      {links.map(link => <a style={navLink} href='/'>{link}</a>)}
     </div>
     <div style={socialButtonsWrapper}>
       {socials.map(social => <SocialButton icon={social} />)}
