@@ -3,17 +3,39 @@ jobs:
   test-sitespeed:
     machine: true
     steps:
-      # - run: sudo modprobe ifb numifbs=1
-      - run:
-          name: Run test
+      # - run:
+      #     name: Run test - cable
+      #     command: |
+      #       docker run --shm-size=1g --rm -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:latest -n 1 \
+      #       https://stage.animedigitalnetwork.fr \
+      #       --basicAuth ${BASIC_AUTH} \
+      #       --slack.hookUrl ${SLACK_HOOK_URL} \
+      #       --s3.key ${S3_KEY} \
+      #       --s3.secret ${S3_SECRET} \
+      #       --s3.bucketname ${S3_BUCKET}
+      #       --browsertime.connectivity.engine tsproxy -c cable
+        - run:
+          name: Run test - fast 3g
           command: |
             docker run --shm-size=1g --rm -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:latest -n 1 \
             https://stage.animedigitalnetwork.fr \
             --basicAuth ${BASIC_AUTH} \
             --slack.hookUrl ${SLACK_HOOK_URL} \
-            --s3.key ${S3_KEY} \
-            --s3.secret ${S3_SECRET} \
-            --s3.bucketname ${S3_BUCKET}
+      #      --s3.key ${S3_KEY} \
+      #      --s3.secret ${S3_SECRET} \
+      #      --s3.bucketname ${S3_BUCKET}
+            --browsertime.connectivity.engine tsproxy -c 3gfast
+        - run:
+          name: Run test - slow 3g
+          command: |
+            docker run --shm-size=1g --rm -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:latest -n 1 \
+            https://stage.animedigitalnetwork.fr \
+            --basicAuth ${BASIC_AUTH} \
+            --slack.hookUrl ${SLACK_HOOK_URL} \
+      #      --s3.key ${S3_KEY} \
+      #      --s3.secret ${S3_SECRET} \
+      #      --s3.bucketname ${S3_BUCKET}
+            --browsertime.connectivity.engine tsproxy -c 3gslow
       - run:
           name: Compress results
           command: tar -cf ~/project/results.tar ~/project/sitespeed-result
