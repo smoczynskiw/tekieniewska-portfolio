@@ -9,12 +9,10 @@ jobs:
           command: |
              docker run --shm-size=1g --rm -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:latest \
              https://stage.animedigitalnetwork.fr \
-             https://stage.animedigitalnetwork.fr/video/bleach \
-             https://stage.animedigitalnetwork.fr/video/bleach/5534-episode-3-episode-3 \
              --basicAuth ${BASIC_AUTH} \
              --slack.hookUrl ${SLACK_HOOK_URL}
       - store_artifacts:
-          path: ~/sitespeed.io
+          path: /sitespeed.io
 
 workflows:
   build:
