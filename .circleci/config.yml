@@ -7,12 +7,9 @@ jobs:
       - run:
           name: Run test
           command: |
-             docker run --shm-size=1g --rm -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:latest \
-             https://stage.animedigitalnetwork.fr \
-             --basicAuth ${BASIC_AUTH} \
-             --slack.hookUrl ${SLACK_HOOK_URL}
+             docker run --shm-size=1g --rm -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:latest https://stage.animedigitalnetwork.fr --basicAuth ${BASIC_AUTH} --slack.hookUrl ${SLACK_HOOK_URL} -n 1
       - store_artifacts:
-          path: /sitespeed.io
+          path: ~/project/sitespeed-result
 
 workflows:
   build:
