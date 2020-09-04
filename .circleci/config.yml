@@ -10,3 +10,5 @@ jobs:
       - run: yarn build
       - run: sudo yarn global add @lhci/cli
       - run: lhci autorun
+      - store_artifacts:
+          path: ~/tekieniewska-portfolio/lhci-report

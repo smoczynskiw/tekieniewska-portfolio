@@ -6,10 +6,13 @@
       ],
       "numberOfRuns": 2
     },
-    "assert": {},
+    "assert": {
+      "preset": "lighthouse:recommended"
+    },
     "upload": {
       "target": "filesystem",
-      "outputDir": "./lhci-report"
+      "outputDir": "./lhci-report",
+      "githubToken": "d11cdf5ed8603a61f71ef12fcfca3ad015d6469f"
     }
   }
 }
