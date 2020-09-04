@@ -2,13 +2,18 @@ version: 2.1
 jobs:
   test-sitespeed:
     machine: true
-    working_directory: ~/repo
     steps:
-      - checkout
       - run: sudo modprobe ifb numifbs=1
-      - run: docker run --shm-size=1g --rm -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:latest https://animedigitalnetwork.fr
+      - run:
+          name: Run test
+          command: |
+             docker run --shm-size=1g --rm -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:latest \
+             https://stage.animedigitalnetwork.fr \
+             https://stage.animedigitalnetwork.fr/video/bleach \
+             https://stage.animedigitalnetwork.fr/video/bleach/5534-episode-3-episode-3 \
+             -r Authorization: "Basic bmV0Z3VydTpqbGJsaGIzNGJsaUJUWTc2aXVhZTIzbFZUSTc2dThvbGFhMjEyYUFLQkd3ZHIl"
       - store_artifacts:
-          path: ~/repo/sitespeed.io
+          path: ~/sitespeed.io
 
 workflows:
   build:
