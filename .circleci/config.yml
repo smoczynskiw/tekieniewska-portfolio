@@ -7,7 +7,7 @@ jobs:
       - run:
           name: Run test
           command: |
-             docker run --shm-size=1g --rm -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:latest https://google.com -n 1
+             docker run --shm-size=1g --rm -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:latest https://google.com --slack.hookUrl ${SLACK_HOOK_URL} -n 1
       - store_artifacts:
           path: ~/project/sitespeed-result
 
