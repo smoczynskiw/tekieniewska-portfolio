@@ -2,13 +2,13 @@ version: 2.1
 jobs:
   test-sitespeed:
     machine: true
-    working_directory: ~/tekieniewska-portfolio
+    working_directory: ~/repo
     steps:
       - checkout
       - run: sudo modprobe ifb numifbs=1
       - run: docker run --shm-size=1g --rm -v "$(pwd):/sitespeed.io" sitespeedio/sitespeed.io:latest https://animedigitalnetwork.fr
       - store_artifacts:
-          path: ~/sitespeed.io
+          path: ~/repo/sitespeed.io
 
 workflows:
   build:
