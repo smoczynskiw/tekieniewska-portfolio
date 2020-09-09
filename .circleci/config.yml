@@ -14,7 +14,8 @@ jobs:
             --s3.bucketname ${S3_BUCKET} \
             --s3.secret ${S3_SECRET} \
             --s3.key ${S3_KEY} \
-            --s3.path cable
+            --s3.path cable \
+            --outputFolder cable
       - run:
           name: Run test - fast 3g
           command: |
@@ -26,7 +27,8 @@ jobs:
             --s3.bucketname ${S3_BUCKET} \
             --s3.secret ${S3_SECRET} \
             --s3.key ${S3_KEY} \
-            --s3.path fast3g
+            --s3.path fast3g \
+            --outputFolder fast3g
       - run:
           name: Run test - slow 3g
           command: |
@@ -38,7 +40,8 @@ jobs:
             --s3.bucketname ${S3_BUCKET} \
             --s3.secret ${S3_SECRET} \
             --s3.key ${S3_KEY} \
-            --s3.path slow3g
+            --s3.path slow3g \
+            --outputFolder slow3g
       - run:
           name: Compress results
           command: tar -cf ~/project/results.tar ~/project/sitespeed-result
