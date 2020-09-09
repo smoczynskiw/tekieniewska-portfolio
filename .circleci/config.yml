@@ -11,7 +11,7 @@ jobs:
             --basicAuth ${BASIC_AUTH} \
             --slack.hookUrl ${SLACK_HOOK_URL} \
             --browsertime.connectivity.engine tsproxy -c cable
-            --s3.bucket ${S3_BUCKET}
+            --s3.bucketname ${S3_BUCKET}
             --s3.secret ${S3_SECRET}
             --s3.key ${S3_KEY}
       - run:
@@ -22,7 +22,7 @@ jobs:
             --basicAuth ${BASIC_AUTH} \
             --slack.hookUrl ${SLACK_HOOK_URL} \
             --browsertime.connectivity.engine tsproxy -c 3gfast
-            --s3.bucket ${S3_BUCKET}
+            --s3.bucketname ${S3_BUCKET}
             --s3.secret ${S3_SECRET}
             --s3.key ${S3_KEY}
       - run:
@@ -33,7 +33,7 @@ jobs:
             --basicAuth ${BASIC_AUTH} \
             --slack.hookUrl ${SLACK_HOOK_URL} \
             --browsertime.connectivity.engine tsproxy -c 3gslow
-            --s3.bucket ${S3_BUCKET}
+            --s3.bucketname ${S3_BUCKET}
             --s3.secret ${S3_SECRET}
             --s3.key ${S3_KEY}
       - run:
