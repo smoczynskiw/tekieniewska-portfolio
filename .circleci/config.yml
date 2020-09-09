@@ -11,6 +11,9 @@ jobs:
             --basicAuth ${BASIC_AUTH} \
             --slack.hookUrl ${SLACK_HOOK_URL} \
             --browsertime.connectivity.engine tsproxy -c cable
+            --s3.bucker ${S3_BUCKER}
+            --s3.secret ${S3_SECRET}
+            --s3.key ${S3_KEY}
       - run:
           name: Run test - fast 3g
           command: |
@@ -19,6 +22,9 @@ jobs:
             --basicAuth ${BASIC_AUTH} \
             --slack.hookUrl ${SLACK_HOOK_URL} \
             --browsertime.connectivity.engine tsproxy -c 3gfast
+            --s3.bucker ${S3_BUCKER}
+            --s3.secret ${S3_SECRET}
+            --s3.key ${S3_KEY}
       - run:
           name: Run test - slow 3g
           command: |
@@ -27,6 +33,9 @@ jobs:
             --basicAuth ${BASIC_AUTH} \
             --slack.hookUrl ${SLACK_HOOK_URL} \
             --browsertime.connectivity.engine tsproxy -c 3gslow
+            --s3.bucker ${S3_BUCKER}
+            --s3.secret ${S3_SECRET}
+            --s3.key ${S3_KEY}
       - run:
           name: Compress results
           command: tar -cf ~/project/results.tar ~/project/sitespeed-result
