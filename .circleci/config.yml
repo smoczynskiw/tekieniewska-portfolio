@@ -44,7 +44,7 @@ jobs:
       #       --outputFolder slow3g
       - run:
           name: Compress results
-          command: tar -cf ~/project/results.tar /sitespeed.io
+          command: tar -cf ~/project/results.tar ~/project/cable ~/project/fast3g ~/project/slow3g
       - store_artifacts:
           path: ~/project/results.tar
 
