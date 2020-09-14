@@ -10,7 +10,7 @@ jobs:
             https://stage.animedigitalnetwork.fr \
             --basicAuth ${BASIC_AUTH} \
             --slack.hookUrl ${SLACK_HOOK_URL} \
-            --slack.channel random
+            --slack.channel random \
             --browsertime.connectivity.engine tsproxy -c cable \
             --s3.bucketname ${S3_BUCKET} \
             --s3.secret ${S3_SECRET} \
